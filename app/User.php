@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Models\Question;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,6 +40,12 @@ class User extends Authenticatable
 
     public function questions(): HasMany
     {
-        return $this->hasMany(Question::class, 'author_id');
+        return $this->hasMany(Question::class);
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('users.show', $this->id);
+        return '#';
     }
 }

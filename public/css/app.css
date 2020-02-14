@@ -10884,3 +10884,40 @@ a.text-dark:focus {
   }
 }
 
+.counters {
+  margin-right: 30px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.counters strong {
+  display: block;
+  font-size: 2em;
+}
+
+.counters .votes,
+.counters .answers {
+  width: 60px;
+  height: 60px;
+}
+
+.counters .answers.unanswered {
+  border: 1px solid #8d9091;
+  border-radius: 10px;
+}
+
+.counters .answers.answered {
+  border: 1px solid #5fbb7e;
+  border-radius: 10px;
+  color: #5fbb7e;
+}
+
+.counters .answers.answer-accepted {
+  background: #5fbb7e;
+  color: #fff;
+}
+
+.counters .views {
+  margin-top: 10px;
+}
+

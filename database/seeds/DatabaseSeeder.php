@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         factory(\App\User::class, 10)->create()->each(function (\App\User $user) {
             $user->questions()->saveMany(
-                factory(\App\Models\Question::class, rand(1, 5))->make()
+                factory(\App\Question::class, rand(1, 5))->make()
             );
         });
     }
