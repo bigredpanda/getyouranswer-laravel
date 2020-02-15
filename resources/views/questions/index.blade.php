@@ -5,14 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Questions</div>
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h2>Questions</h2>
+                            <div class="ml-auto">
+                                <a href="{{route('questions.create')}}" class="btn btn-outline-success">Create
+                                    Question</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        @include('layouts._messages')
 
                         @foreach($questions as $question)
                             <div class="media">
@@ -22,7 +26,7 @@
                                         {{\Illuminate\Support\Str::plural('vote', $question->votes) }}
                                     </div>
 
-                                    <div class="answers {{$question->status}} {{$question->answers_cnt > 0 ? 'answered' : ''}}">
+                                    <div class="answers {{$question->status}}">
                                         <strong>{{$question->answers_cnt}}</strong>
                                         {{\Illuminate\Support\Str::plural('answer', $question->answers_cnt) }}
                                     </div>

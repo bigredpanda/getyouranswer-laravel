@@ -10901,14 +10901,16 @@ a.text-dark:focus {
   height: 60px;
 }
 
+.counters .answers {
+  border-radius: 10px;
+}
+
 .counters .answers.unanswered {
   border: 1px solid #8d9091;
-  border-radius: 10px;
 }
 
 .counters .answers.answered {
   border: 1px solid #5fbb7e;
-  border-radius: 10px;
   color: #5fbb7e;
 }
 
