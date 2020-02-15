@@ -20,7 +20,7 @@
                         @include('layouts._messages')
 
                         @foreach($questions as $question)
-                            <div class="media">
+                            <div class="media question-block">
                                 <div class="d-flex flex-column counters">
                                     <div class="votes">
                                         <strong>{{$question->votes}}</strong>
@@ -45,12 +45,25 @@
                                                 {{$question->title}}
                                             </a>
                                         </h3>
-                                        <div class="ml-auto">
+
+                                        <div class="ml-auto actions">
                                             <a href="{{ route('questions.edit', $question->id) }}"
                                                class="btn btn-outline-info btn-sm">
-                                                Edit question
+                                                Edit
                                             </a>
+
+                                            <form action="{{ route('questions.destroy', $question->id) }}"
+                                                  class="form-delete" method="POST">
+                                                @csrf {{method_field('DELETE')}}
+
+                                                <button class="btn btn-outline-danger btn-sm"
+                                                        onclick="return confirm('Are you sure>'); " type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </div>
+
+
                                     </div>
 
                                     <p class="lead">

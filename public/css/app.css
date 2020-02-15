@@ -10923,3 +10923,11 @@ a.text-dark:focus {
   margin-top: 10px;
 }
 
+.form-delete {
+  display: inline-block;
+}
+
+.question-block .actions {
+  min-width: 100px;
+}
+
