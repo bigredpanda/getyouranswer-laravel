@@ -7,10 +7,11 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex align-items-center">
-                            <h2>Questions</h2>
+                            <h2 class="text-muted">Questions</h2>
                             <div class="ml-auto">
-                                <a href="{{route('questions.create')}}" class="btn btn-outline-success">Create
-                                    Question</a>
+                                <a href="{{ route('questions.create') }}" class="btn btn-outline-success">
+                                    Ask a question
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -38,11 +39,19 @@
                                 </div>
 
                                 <div class="media-body">
-                                    <h3 class="mt-0">
-                                        <a href="{{$question->url}}">
-                                            {{$question->title}}
-                                        </a>
-                                    </h3>
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="mt-0">
+                                            <a href="{{$question->url}}">
+                                                {{$question->title}}
+                                            </a>
+                                        </h3>
+                                        <div class="ml-auto">
+                                            <a href="{{ route('questions.edit', $question->id) }}"
+                                               class="btn btn-outline-info btn-sm">
+                                                Edit question
+                                            </a>
+                                        </div>
+                                    </div>
 
                                     <p class="lead">
                                         Asked by
