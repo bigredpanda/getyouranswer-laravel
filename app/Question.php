@@ -50,7 +50,7 @@ class Question extends Model
 
     public function getBodyHtmlAttribute()
     {
-        return \Parsedown::
+        return \Parsedown::instance()->text($this->body);
     }
 
 }
