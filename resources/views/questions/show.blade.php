@@ -4,8 +4,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">{{$question->title}}</div>
+                <div class="card question-block">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h2>{{ $question->title }}</h2>
+
+                            @include('questions._action_buttons', compact('question'))
+                        </div>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -17,7 +23,7 @@
 
                         <div class="media">
                             <div class="media-body">
-                                {{$question->body}}
+                                {{ $question->body_html }}
                             </div>
                         </div>
                     </div>
