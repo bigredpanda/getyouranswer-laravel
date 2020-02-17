@@ -32,7 +32,7 @@ class Answer extends Model
 
     public function getCreatedDateAttribute()
     {
-        return $this->created_at->forHumans();
+        return $this->created_at->diffForHumans();
     }
 
     public function getUpdatedDateAttribute()
