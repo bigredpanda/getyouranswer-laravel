@@ -1,5 +1,8 @@
 <?php
 
+use App\Answer;
+use App\Question;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,10 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\User::class, 10)->create()->each(function (\App\User $user) {
-            $user->questions()->saveMany(
-                factory(\App\Question::class, rand(1, 5))->make()
-            );
+        factory(User::class, 10)->create()->each(function (User $user) {
+            $questions = factory(Question::class, rand(1, 5))->make();
+            $user->questions()
+                ->saveMany($questions)
+                ->each(function (Question $question) {
+                    $answers = factory(Answer::class, rand(1, 5))->make();
+                    $question->answers()->saveMany($answers);
+                });
         });
     }
 }
